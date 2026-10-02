@@ -1,0 +1,39 @@
+{
+  "name": "habibat-dunyati",
+  "version": "2.0.0",
+  "private": true,
+  "packageManager": "pnpm@10.33.0",
+  "engines": {
+    "node": "22.x"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "check:turn": "node --env-file=.env.local scripts/check-metered-turn.mjs",
+    "check": "pnpm lint && pnpm build"
+  },
+  "dependencies": {
+    "@google/genai": "^2.26.0",
+    "lucide-react": "^1.49.0",
+    "mongodb": "^7.7.0",
+    "motion": "^13.5.0",
+    "next": "^16.3.8",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "react-markdown": "^10.1.0",
+    "remark-gfm": "^4.0.1",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/node": "^24.10.0",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "eslint": "^9.39.1",
+    "eslint-config-next": "^16.3.8",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^5.9.3"
+  }
+}

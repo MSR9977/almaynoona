@@ -1,0 +1,16 @@
+.env
+.env.*
+!.env.example
+.next/
+dist/
+node_modules/
+index.html
+blog.html
+algayora.html
+script.js
+style.css
+1.png
+2.png
+3.jpeg
+4.png
+*.log
