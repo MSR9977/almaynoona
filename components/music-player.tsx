@@ -122,12 +122,12 @@ export function MusicPlayer() {
     <>
       {showToast && (
         <div
-          className="dedication-toast left-1/2 top-20 z-[110] w-[min(92vw,440px)]  -translate-x-1/2 overflow-hidden rounded-[1.6rem] border border-white/50 bg-[rgba(255,250,246,.92)] p-1 shadow-[0_24px_80px_rgba(100,21,48,.28)] backdrop-blur-xl"
+          className="dedication-toast left-1/2 top-80 z-[110] w-[min(92vw,440px)]  -translate-x-1/2 overflow-hidden rounded-[1.6rem] border border-white/50 bg-[rgba(255,250,246,.92)] p-1 shadow-[0_24px_80px_rgba(100,21,48,.28)] backdrop-blur-xl"
           role="status"
           aria-live="polite"
         >
           <div className="relative overflow-hidden rounded-[1.35rem] bg-[linear-gradient(135deg,rgba(238,170,192,.36),rgba(255,250,246,.96)_45%,rgba(244,200,77,.18))] px-5 py-4">
-            <div className="pointer-events-none absolute -left-7 -top-8 size-24 rounded-full bg-[var(--pink)]/30 blur-2xl" />
+            <div className="pointer-events-none absolute -left-7 -top-50 size-24 rounded-full bg-[var(--pink)]/30 blur-2xl" />
             <div className="pointer-events-none absolute -bottom-10 right-6 size-24 rounded-full bg-[var(--yellow)]/25 blur-2xl" />
 
             <div className="relative flex items-center gap-4 text-right">
@@ -163,7 +163,7 @@ export function MusicPlayer() {
       )}
 
       <aside
-        className={`fixed bottom-4 left-4 z-40 overflow-hidden rounded-2xl bg-[#241b25] text-white shadow-2xl transition-all duration-500 ${
+        className={` bottom-4 left-4 z-40 overflow-hidden rounded-2xl bg-[#241b25] text-white shadow-2xl transition-all duration-500 ${
           expanded ? "w-[min(360px,calc(100vw-2rem))]" : "w-64"
         }`}
       >
