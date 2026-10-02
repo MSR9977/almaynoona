@@ -64,6 +64,30 @@ button { cursor: pointer; }
 .legal-markdown th, .legal-markdown td { border: 1px solid rgba(255,255,255,.1); padding: .55rem; text-align: right; }
 .legal-markdown th { background: rgba(184,148,70,.1); color: #eadcb7; }
 .legal-markdown hr { margin: 1.5rem 0; border: 0; border-top: 1px solid rgba(255,255,255,.08); }
+.legal-light .legal-markdown { color: rgba(24,45,49,.78); }
+.legal-light .legal-markdown h1 { color: #60481f; }
+.legal-light .legal-markdown h2 { color: #705525; }
+.legal-light .legal-markdown h3 { color: #84652c; }
+.legal-light .legal-markdown blockquote { background: rgba(184,148,70,.08); color: #60481f; }
+.legal-light .legal-markdown code { background: rgba(24,45,49,.07); color: #705525; }
+.legal-light .legal-markdown pre { background: #10282e; color: #f7f2e8; }
+.legal-light .legal-markdown th, .legal-light .legal-markdown td { border-color: rgba(24,45,49,.12); }
+.legal-light .legal-markdown th { background: rgba(184,148,70,.1); color: #60481f; }
+
+.chat-markdown h1, .chat-markdown h2, .chat-markdown h3 { margin: 1rem 0 .45rem; color: var(--berry-dark); font-weight: 800; }
+.chat-markdown h1 { font-family: var(--font-ruqaa), Georgia, serif; font-size: 1.35rem; }
+.chat-markdown h2 { border-right: 2px solid var(--pink); padding-right: .55rem; font-size: 1rem; }
+.chat-markdown h3 { font-size: .88rem; }
+.chat-markdown p { margin: .55rem 0; }
+.chat-markdown ul, .chat-markdown ol { margin: .6rem 0; padding-right: 1.2rem; }
+.chat-markdown ul { list-style: disc; }
+.chat-markdown ol { list-style: decimal; }
+.chat-markdown li { margin: .2rem 0; }
+.chat-markdown blockquote { margin: .8rem 0; border-right: 3px solid var(--pink); background: rgba(141,36,73,.04); padding: .65rem .8rem; }
+.chat-markdown code { border-radius: .35rem; background: rgba(141,36,73,.08); padding: .1rem .3rem; color: var(--berry-dark); }
+.chat-markdown pre { overflow-x: auto; border-radius: .75rem; background: #2b2028; padding: .8rem; color: #fff7f2; direction: ltr; text-align: left; }
+.chat-markdown table { margin: .8rem 0; width: 100%; border-collapse: collapse; font-size: .68rem; }
+.chat-markdown th, .chat-markdown td { border: 1px solid rgba(36,27,37,.1); padding: .45rem; text-align: right; }
 
 @keyframes floaty { 0%,100% { transform: translateY(0) rotate(-1deg); } 50% { transform: translateY(-12px) rotate(1deg); } }
 @keyframes spin-slow { to { transform: rotate(360deg); } }
@@ -82,3 +106,21 @@ button { cursor: pointer; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
 }
+
+/* Song dedication toast */
+@keyframes dedication-toast-in {
+  0% { opacity: 0; transform: translate(-50%, -22px) scale(.96); filter: blur(6px); }
+  70% { opacity: 1; transform: translate(-50%, 3px) scale(1.01); filter: blur(0); }
+  100% { opacity: 1; transform: translate(-50%, 0) scale(1); filter: blur(0); }
+}
+@keyframes dedication-toast-progress {
+  from { transform: scaleX(1); }
+  to { transform: scaleX(0); }
+}
+@keyframes dedication-disc {
+  0%, 100% { transform: rotate(-5deg) scale(1); }
+  50% { transform: rotate(8deg) scale(1.06); }
+}
+.dedication-toast { animation: dedication-toast-in .58s cubic-bezier(.2,.85,.25,1) both; }
+.dedication-toast-progress { animation: dedication-toast-progress 7.2s linear forwards; }
+.dedication-disc { animation: dedication-disc 1.8s ease-in-out infinite; }

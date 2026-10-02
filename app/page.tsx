@@ -10,9 +10,12 @@ export default function HomePage() {
         <div className="absolute inset-x-0 top-0 -z-10 h-3/4 bg-[radial-gradient(circle_at_75%_35%,rgba(238,170,192,.5),transparent_35%),linear-gradient(140deg,rgba(238,170,192,.2),transparent_55%)]" />
         <div className="page-shell grid min-h-[calc(100vh-7rem)] items-center gap-8 lg:grid-cols-[.9fr_1.1fr]">
           <Reveal className="z-10 text-center lg:text-right">
-            <p className="eyebrow mb-5 justify-center lg:justify-start">إلى أجمل صدفة في حياتي</p>
-            <h1 className="display-title text-[clamp(5rem,10vw,9rem)]">أنتِ الحكاية<br /><span className="text-[var(--berry)]">التي أحبّها</span></h1>
-            <p className="mx-auto mt-7 max-w-xl text-sm leading-8 text-black/60 lg:mx-0">هذا المكان مو مجرد صفحة، هذا جزء صغير من الأشياء الحلوة اللي تصير في قلبي كل ما أتذكرك.</p>
+            <p className="eyebrow mb-5 justify-center lg:justify-start"></p>
+            <h1 className="display-title text-[clamp(2rem,6vw,5rem)]">الحكاية .. إنك أجمل<br /><span className="text-[var(--berry)]">من تفاصيل الحكاية</span></h1>
+            <p className="mx-auto mt-7 max-w-xl text-sm leading-8 text-black/60 lg:mx-0">
+وإنك أكبر من كلامي .. وكل ما تكتب يدي
+كل يوم أحبك إنتي .. من البداية للبداية
+أبتدي بك .. وابتدي بك .. وابتدي بك وابتدي.</p>
             <div className="mt-7 flex flex-wrap justify-center gap-3 lg:justify-start"><Link href="/story" className="rounded-full bg-[var(--berry)] px-7 py-4 text-xs font-bold text-white shadow-xl shadow-rose-950/20 transition hover:-translate-y-1">ابدئي الحكاية ←</Link><Link href="/chat" className="rounded-full border border-black/15 bg-white/30 px-7 py-4 text-xs font-bold transition hover:-translate-y-1 hover:bg-white">تعالي نتكلم ♥</Link></div>
           </Reveal>
           <Reveal delay={.1} className="relative flex min-h-[560px] items-end justify-center">
@@ -24,7 +27,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="-rotate-1 scale-[1.02] overflow-hidden bg-[var(--berry)] py-4 text-white"><div className="animate-marquee flex w-max gap-10 whitespace-nowrap font-display text-2xl"><span>من لقى مثل وجهه ! ♥</span><span>مالقى مثل عينه  ✦</span><span>ومن يشوف العيون ✦</span><span>الناعسه ماجهلها ♥ </span><span>✦✦✦✦</span><span>أبشر من عيوني الثنتين ♥</span><span>مثلك تلبى مطاليبه ✦</span><span>والقلب مايسكنه شخصين ♥</span><span>واحد ويكفيني تعذيبه  ✦</span><span>✦✦✦✦</span></div></section>
+      <section className="-rotate-1 scale-[1.02] overflow-hidden bg-[var(--berry)] py-4 text-white"><div className="animate-marquee flex w-max gap-10 whitespace-nowrap font-display text-2xl"><span>من لقى مثل وجهه !</span><span>مالقى مثل عينه  ✦</span><span>ومن يشوف العيون ✦</span><span>الناعسه ماجهلها ♥ </span><span>✦✦✦✦</span><span>أبشر من عيوني الثنتين ♥</span><span>مثلك تلبى مطاليبه ✦</span><span>والقلب مايسكنه شخصين ♥</span><span>واحد ويكفيني تعذيبه  ✦</span><span>✦✦✦✦</span></div></section>
 
       <section className="page-shell py-28 sm:py-40">
         <Reveal><p className="eyebrow mb-5 !text-4xl "> ♥️</p><h2 className="display-title max-w-3xl text-6xl sm:text-8xl">تفاصيلك<br /></h2> <h2 className=" mt-10 display-title max-w-3xl text-6xl sm:text-6xl"><span className="text-[var(--berry)]">إهي ضعفي </span><br /><span className="text-[var(--berry)]">لا تسأل ليـش !! </span></h2></Reveal>
@@ -35,8 +38,8 @@ export default function HomePage() {
 
       <section className="bg-[#241b25] py-28 text-white">
         <div className="page-shell grid items-center gap-12 lg:grid-cols-2">
-          <Reveal><div className="relative mx-auto max-w-lg"><div className="absolute -inset-4 rotate-3 bg-[var(--pink)]" /><Image src="/images/love-close.png" width={2000} height={2000} alt="صورة مرحة بنظارة النجوم" className="relative h-[600px] w-full object-contain" /></div></Reveal>
-          <Reveal delay={.1}><p className="eyebrow mb-5 !text-[var(--pink)]">المكان الخاص فينا</p><h2 className="display-title text-6xl sm:text-8xl">دردشة<br /><span className="text-[var(--pink)]">من قلب لقلب</span></h2><p className="mt-6 max-w-lg text-sm leading-8 text-white/55">رسائلنا وصورنا وضحكاتنا في مكان واحد. بدون حساب، وبدون تعقيد—بس اختاري اسمك وابدئي السالفة.</p><Link href="/chat" className="mt-8 inline-flex rounded-full bg-white px-7 py-4 text-xs font-bold text-[var(--berry)] transition hover:-translate-y-1 hover:bg-[var(--pink)]">افتحي الدردشة الحية ←</Link></Reveal>
+          <Reveal><div className="relative mx-auto max-w-lg"><div className="absolute -inset-4 rotate-3 bg-[var(--pink)]" /><Image src="/images/love-close.jpg" width={2000} height={2000} alt="صورة مرحة بنظارة النجوم" className="relative h-[600px] w-full object-contain" /></div></Reveal>
+          <Reveal delay={.1}><p className="eyebrow mb-5 !text-[var(--pink)]">المكان الخاص فينا</p><h2 className="display-title text-6xl sm:text-7xl">دش و فضفضلي</h2><br /><h2 className="display-title mt-4 text-4xl sm:text-6xl"><span className="text-[var(--pink)]">جعل محد يدش غيرك ♥</span></h2><p className="mt-6 max-w-lg text-sm leading-8 text-white/55">رسائلنا وسورنا وكل شي في مكان واحد، عندج السالفة.</p><Link href="/chat" className="mt-8 inline-flex rounded-full bg-white px-7 py-4 text-xs font-bold text-[var(--berry)] transition hover:-translate-y-1 hover:bg-[var(--pink)]">افتحي الدردشة الحية ←</Link></Reveal>
         </div>
       </section>
 

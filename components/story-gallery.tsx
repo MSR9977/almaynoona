@@ -6,7 +6,7 @@ import { useState } from "react";
 
 const photos = [
   { src: "/images/love-photo.jpeg", title: "الحلوة في كل حالاتها", className: "md:row-span-2" },
-  { src: "/images/love-close.png", title: "ضحكة تشبه العيد", className: "" },
+  { src: "/images/love-close.jpg", title: "ضحكة تشبه العيد", className: "" },
   { src: "/images/love-full.png", title: "ملونة مثل أيامنا", className: "" },
   { src: "/images/love-detail.png", title: "تفاصيل ما تنسى", className: "md:col-span-2" },
 ];

@@ -1,7 +1,7 @@
 import "server-only";
 import { promises as dns, setServers } from "node:dns";
 import { Collection, Db, MongoClient } from "mongodb";
-import type { ChatMessageDocument } from "@/lib/types";
+import type { ChatConversationDocument, ChatMessageDocument } from "@/lib/types";
 import type { CallSignalDocument } from "@/lib/call-types";
 
 const uri = process.env.MONGODB_URI;
@@ -15,6 +15,7 @@ const globalForMongo = globalThis as unknown as {
   mongoClientPromise?: Promise<MongoClient>;
   mongoIndexPromise?: Promise<string>;
   callIndexPromise?: Promise<unknown>;
+  conversationIndexPromise?: Promise<unknown>;
   mongoDnsPromise?: Promise<void>;
 };
 
@@ -62,10 +63,24 @@ export async function getMessagesCollection(): Promise<Collection<ChatMessageDoc
   const collection = database.collection<ChatMessageDocument>("messages");
 
   globalForMongo.mongoIndexPromise ??= collection.createIndex(
-    { roomId: 1, createdAt: -1 },
-    { name: "room_messages_by_time" },
+    { roomId: 1, conversationId: 1, createdAt: -1 },
+    { name: "conversation_messages_by_time" },
   );
   await globalForMongo.mongoIndexPromise;
+  return collection;
+}
+
+export async function getConversationsCollection(): Promise<Collection<ChatConversationDocument>> {
+  const database = await getDatabase();
+  const collection = database.collection<ChatConversationDocument>("chat_conversations");
+  globalForMongo.conversationIndexPromise ??= Promise.all([
+    collection.createIndex({ roomId: 1, updatedAt: -1 }, { name: "room_conversations" }),
+    collection.createIndex(
+      { roomId: 1, dayKey: 1, isDaily: 1 },
+      { name: "one_daily_conversation", unique: true, partialFilterExpression: { isDaily: true } },
+    ),
+  ]);
+  await globalForMongo.conversationIndexPromise;
   return collection;
 }
 

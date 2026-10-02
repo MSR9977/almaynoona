@@ -3,12 +3,12 @@ import { NextRequest } from "next/server";
 import { getMessagesCollection } from "@/lib/mongodb";
 import { serializeMessage } from "@/lib/types";
 import { requireAuthentication } from "@/lib/auth-request";
+import { CHAT_ROOM_ID } from "@/lib/chat-history";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
 export const maxDuration = 60;
 
-const roomId = process.env.CHAT_ROOM_ID || "our-private-love-room";
 const encoder = new TextEncoder();
 
 function delay(milliseconds: number, signal: AbortSignal) {
@@ -24,6 +24,11 @@ function delay(milliseconds: number, signal: AbortSignal) {
 export async function GET(request: NextRequest) {
   const unauthorized = await requireAuthentication(request);
   if (unauthorized) return unauthorized;
+  const requestedConversationId = request.nextUrl.searchParams.get("conversationId");
+  if (!requestedConversationId || !ObjectId.isValid(requestedConversationId)) {
+    return Response.json({ error: "المحادثة غير صالحة" }, { status: 400 });
+  }
+  const conversationId = new ObjectId(requestedConversationId);
   const requestedLastId = request.nextUrl.searchParams.get("after");
   let lastId = requestedLastId && ObjectId.isValid(requestedLastId)
     ? new ObjectId(requestedLastId)
@@ -38,7 +43,7 @@ export async function GET(request: NextRequest) {
         const collection = await getMessagesCollection();
         while (!request.signal.aborted && Date.now() - startedAt < 52_000) {
           const messages = await collection
-            .find({ roomId, _id: { $gt: lastId } })
+            .find({ roomId: CHAT_ROOM_ID, conversationId, _id: { $gt: lastId } })
             .sort({ _id: 1 })
             .limit(100)
             .toArray();
