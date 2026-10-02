@@ -122,7 +122,7 @@ export function MusicPlayer() {
     <>
       {showToast && (
         <div
-          className="dedication-toast fixed left-1/2 top-20 z-[110] w-[min(92vw,440px)] -translate-x-1/2 overflow-hidden rounded-[1.6rem] border border-white/50 bg-[rgba(255,250,246,.92)] p-1 shadow-[0_24px_80px_rgba(100,21,48,.28)] backdrop-blur-xl"
+          className="dedication-toast left-1/2 top-20 z-[110] w-[min(92vw,440px)]  -translate-x-1/2 overflow-hidden rounded-[1.6rem] border border-white/50 bg-[rgba(255,250,246,.92)] p-1 shadow-[0_24px_80px_rgba(100,21,48,.28)] backdrop-blur-xl"
           role="status"
           aria-live="polite"
         >
